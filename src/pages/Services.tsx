@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Home, Utensils, MapPin, Droplets, FileText, Moon } from "lucide-react";
+import { 
+  Home, Utensils, MapPin, Droplets, FileText, Moon,
+  Stethoscope, ShoppingCart, Theater, Brain, Heart, PawPrint
+} from "lucide-react";
 import cleaningImage from "@/assets/service-cleaning.jpg";
 import mealsImage from "@/assets/service-meals.jpg";
 import accompanimentImage from "@/assets/service-accompaniment.jpg";
@@ -49,6 +52,57 @@ const Services = () => {
       description: "Surveillance et réassurance nocturne pour des nuits paisibles. Une présence rassurante pour vous et vos proches.",
       image: nightImage,
       features: ["Surveillance continue", "Aide aux levers", "Réassurance", "Appel d'urgence"],
+    },
+  ];
+
+  const servicesAlaCarte = [
+    {
+      icon: Stethoscope,
+      title: "Accompagnement médical",
+      price: "45 €/h",
+      description: "Transport et assistance lors de rendez-vous médicaux",
+    },
+    {
+      icon: ShoppingCart,
+      title: "Courses et logistique",
+      price: "40 €/h",
+      description: "Courses alimentaires, pharmacie, démarches administratives",
+    },
+    {
+      icon: Theater,
+      title: "Sorties culturelles et sociales",
+      price: "50 €/h",
+      description: "Accompagnement au théâtre, musée, cinéma, événements sociaux",
+    },
+    {
+      icon: FileText,
+      title: "Aide administrative",
+      price: "35 €/h",
+      description: "Gestion du courrier, formulaires, demandes APA/PCH, suivi de dossiers",
+    },
+    {
+      icon: Brain,
+      title: "Stimulation cognitive personnalisée",
+      price: "45 €/h",
+      description: "Ateliers mémoire, jeux cognitifs, activités adaptées",
+    },
+    {
+      icon: Heart,
+      title: "Soutien bien-être",
+      price: "50 €/h",
+      description: "Activités douces : lecture, promenade, relaxation, écoute",
+    },
+    {
+      icon: Moon,
+      title: "Intervention ponctuelle de nuit",
+      price: "80 €/nuit",
+      description: "Présence rassurante et assistance nocturne exceptionnelle",
+    },
+    {
+      icon: PawPrint,
+      title: "Option Animaux",
+      price: "20 €/h",
+      description: "Promenade, alimentation, soins de base pour animaux de compagnie",
     },
   ];
 
@@ -128,8 +182,37 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Services à la carte */}
       <section className="section-padding bg-section-alt">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-playfair mb-6">
+              Services à la carte <span className="text-gradient">(optionnels)</span>
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Des prestations complémentaires pour répondre à tous vos besoins spécifiques.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {servicesAlaCarte.map((service, index) => (
+              <div key={index} className="soft-card group hover:shadow-card transition-shadow">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serenity to-parme flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <service.icon className="w-6 h-6 text-primary-foreground" />
+                  </div>
+                  <div className="text-xl font-bold text-gradient">{service.price}</div>
+                </div>
+                <h3 className="font-playfair text-lg mb-2">{service.title}</h3>
+                <p className="text-sm text-muted-foreground">{service.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="glass-card p-8 md:p-16 text-center max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-playfair mb-6">

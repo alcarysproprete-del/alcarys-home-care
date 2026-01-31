@@ -1,29 +1,47 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Clock, Award, Heart, Users, Shield, Sparkles, Activity, Smile } from "lucide-react";
+import { 
+  Clock, Award, Heart, Users, Shield, Sparkles, Activity, Smile,
+  CheckCircle, Euro, PawPrint, FileCheck, UserCheck, Headphones
+} from "lucide-react";
 import heroImage from "@/assets/hero-home-care.jpg";
 
 const Index = () => {
   const features = [
     {
-      icon: Clock,
-      title: "Interventions rapides",
-      description: "Mise en place sous 48h pour répondre à vos besoins urgents",
+      icon: Euro,
+      title: "Zéro reste à charge",
+      description: "Ingénierie tarifaire maîtrisée (APA/PCH/CESU)",
     },
     {
-      icon: Award,
-      title: "Évaluation gratuite",
-      description: "Un conseiller se déplace chez vous sans engagement",
+      icon: FileCheck,
+      title: "Offres packagées lisibles",
+      description: "Adaptées à chaque niveau de besoin",
     },
     {
-      icon: Heart,
-      title: "Aides financières",
-      description: "Nous vous accompagnons pour l'APA, PCH et crédit d'impôt",
+      icon: Sparkles,
+      title: "Activité holistique incluse",
+      description: "Bien-être, stimulation cognitive, lien social",
+    },
+    {
+      icon: UserCheck,
+      title: "Suivi qualité intégré",
+      description: "Coordination médico-sociale complète",
     },
     {
       icon: Users,
-      title: "Intervenants qualifiés",
-      description: "Équipe formée et sélectionnée avec soin",
+      title: "Intervenants formés",
+      description: "Bienveillants, qualifiés et disponibles",
+    },
+    {
+      icon: Headphones,
+      title: "Accompagnement administratif",
+      description: "Pour les familles et prescripteurs",
+    },
+    {
+      icon: PawPrint,
+      title: "Option animaux",
+      description: "Environnement apaisé et complet",
     },
   ];
 
@@ -61,13 +79,18 @@ const Index = () => {
         <div className="container-custom section-padding">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-up">
+              <div className="inline-block">
+                <span className="text-sm font-medium text-primary bg-primary/10 px-4 py-2 rounded-full">
+                  Alcarys – Cocoon&Co
+                </span>
+              </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair leading-tight">
                 Vivre mieux chez soi,{" "}
                 <span className="text-gradient">chaque jour.</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
-                Aide à domicile humaine, professionnelle et adaptée à chaque situation. 
-                À Neuilly-sur-Marne et ses environs.
+                Une approche humaine, rigoureuse et holistique du maintien à domicile. 
+                Zéro reste à charge grâce à l'APA, PCH et CESU.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
@@ -75,9 +98,9 @@ const Index = () => {
                     Demander une évaluation gratuite
                   </Button>
                 </Link>
-                <Link to="/services">
+                <Link to="/packs">
                   <Button variant="outline" size="xl">
-                    Découvrir nos services
+                    Découvrir nos packs
                   </Button>
                 </Link>
               </div>
@@ -95,11 +118,11 @@ const Index = () => {
               <div className="absolute -bottom-6 -left-6 glass-card p-4 animate-float">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-serenity to-primary flex items-center justify-center">
-                    <Heart className="w-6 h-6 text-primary-foreground" />
+                    <Euro className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div>
-                    <p className="font-semibold text-foreground">+500 familles</p>
-                    <p className="text-sm text-muted-foreground">nous font confiance</p>
+                    <p className="font-semibold text-foreground">0 € reste à charge</p>
+                    <p className="text-sm text-muted-foreground">grâce aux aides</p>
                   </div>
                 </div>
               </div>
@@ -116,19 +139,33 @@ const Index = () => {
               Pourquoi choisir <span className="text-gradient">Alcarys</span> ?
             </h2>
             <p className="text-lg text-muted-foreground">
-              Nous mettons l'humain au cœur de notre accompagnement pour vous offrir 
-              un service de qualité, adapté à vos besoins.
+              Nous plaçons la personne au cœur du dispositif, en tenant compte de son corps, 
+              de son esprit, de ses émotions et de son environnement.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-children">
-            {features.map((feature, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+            {features.slice(0, 4).map((feature, index) => (
               <div key={index} className="soft-card text-center group">
                 <div className="icon-circle mx-auto mb-6 group-hover:scale-110 transition-transform">
                   <feature.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
                 <h3 className="font-playfair text-xl mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <p className="text-muted-foreground text-sm">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-6">
+            {features.slice(4).map((feature, index) => (
+              <div key={index} className="flex items-start gap-4 p-4 rounded-xl bg-serenity-light/30">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-serenity to-primary flex items-center justify-center flex-shrink-0">
+                  <feature.icon className="w-5 h-5 text-primary-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-semibold mb-1">{feature.title}</h4>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -161,6 +198,47 @@ const Index = () => {
                 <p className="text-muted-foreground">{pillar.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Packs Preview */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-playfair mb-6">
+              Des packs adaptés à chaque situation
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Formules claires, lisibles et finançables à 100% par les dispositifs publics.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Présence Totale", price: "4 500 €/mois", hours: "160h" },
+              { name: "Confort Total", price: "3 000 €/mois", hours: "100h" },
+              { name: "Mobilité Adaptée", price: "2 250 €/mois", hours: "75h" },
+              { name: "Autonomie Active", price: "1 500 €/mois", hours: "50h" },
+            ].map((pack, index) => (
+              <div key={index} className="soft-card text-center">
+                <h4 className="font-playfair text-lg mb-2">{pack.name}</h4>
+                <p className="text-2xl font-bold text-gradient mb-1">{pack.price}</p>
+                <p className="text-sm text-muted-foreground mb-4">{pack.hours}/mois</p>
+                <div className="inline-flex items-center gap-1 text-green-600 text-sm">
+                  <CheckCircle className="w-4 h-4" />
+                  0 € reste à charge
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link to="/packs">
+              <Button variant="cta" size="lg">
+                Voir tous nos packs
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
