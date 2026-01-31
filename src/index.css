@@ -2,66 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Alcarys Design System - Elegant pastel home care theme */
+/* Alcarys – Cocoon&Co Design System - Elegant & Premium */
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Brand Colors - Pastel & Serene */
-    --serenity-blue: 210 75% 66%;
-    --serenity-blue-light: 210 80% 85%;
-    --parme-pastel: 263 52% 81%;
-    --parme-light: 263 60% 92%;
-    --violet-deep: 259 53% 49%;
-    --violet-glow: 259 53% 59%;
+    /* Brand Colors - New Premium Palette */
+    --or-champagne: 37 45% 60%;
+    --or-fonce: 37 47% 44%;
+    --noir-profond: 0 0% 11%;
+    --beige-clair: 40 33% 96%;
+    --vert-sauge: 108 18% 68%;
+    --bleu-doux: 205 35% 77%;
+    --lavande: 270 28% 83%;
+    --peche-pastel: 24 78% 87%;
     
     /* Semantic Colors */
-    --background: 248 33% 98%;
-    --foreground: 0 0% 18%;
+    --background: 40 33% 96%;
+    --foreground: 0 0% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
+    --card-foreground: 0 0% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
+    --popover-foreground: 0 0% 11%;
 
-    --primary: 259 53% 49%;
+    --primary: 37 47% 44%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 75% 66%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 205 35% 77%;
+    --secondary-foreground: 0 0% 11%;
 
-    --muted: 248 20% 94%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 40 20% 92%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 263 52% 81%;
-    --accent-foreground: 259 53% 30%;
+    --accent: 270 28% 83%;
+    --accent-foreground: 270 30% 25%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 248 20% 90%;
-    --input: 248 20% 90%;
-    --ring: 259 53% 49%;
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 37 47% 44%;
 
     --radius: 1rem;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(210 75% 66%), hsl(259 53% 49%));
-    --gradient-hero: linear-gradient(180deg, hsl(248 33% 98%) 0%, hsl(263 60% 96%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(263 60% 98%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(210 75% 66%) 0%, hsl(263 52% 75%) 50%, hsl(259 53% 55%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(37 45% 60%), hsl(37 47% 44%));
+    --gradient-hero: linear-gradient(180deg, hsl(40 33% 96%) 0%, hsl(40 40% 94%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(40 33% 98%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(37 45% 55%) 0%, hsl(37 47% 44%) 100%);
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(259 53% 49% / 0.12);
-    --shadow-card: 0 8px 32px -8px hsl(259 53% 49% / 0.15);
-    --shadow-elevated: 0 16px 48px -12px hsl(259 53% 49% / 0.2);
-    --shadow-glow: 0 4px 24px -4px hsl(210 75% 66% / 0.4);
+    --shadow-soft: 0 4px 20px -4px hsl(37 47% 44% / 0.12);
+    --shadow-card: 0 8px 32px -8px hsl(37 47% 44% / 0.15);
+    --shadow-elevated: 0 16px 48px -12px hsl(37 47% 44% / 0.2);
+    --shadow-glow: 0 4px 24px -4px hsl(37 45% 60% / 0.4);
 
     /* Glassmorphism */
-    --glass-bg: hsl(0 0% 100% / 0.7);
-    --glass-border: hsl(0 0% 100% / 0.5);
+    --glass-bg: hsl(0 0% 100% / 0.8);
+    --glass-border: hsl(0 0% 100% / 0.6);
     --glass-blur: 12px;
 
     /* Sidebar (keeping defaults) */
@@ -76,33 +78,33 @@
   }
 
   .dark {
-    --background: 259 30% 8%;
+    --background: 37 15% 8%;
     --foreground: 0 0% 95%;
 
-    --card: 259 25% 12%;
+    --card: 37 15% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 259 25% 12%;
+    --popover: 37 15% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 210 75% 66%;
-    --primary-foreground: 259 53% 10%;
+    --primary: 37 45% 60%;
+    --primary-foreground: 0 0% 10%;
 
-    --secondary: 263 52% 70%;
-    --secondary-foreground: 259 53% 10%;
+    --secondary: 205 35% 70%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 259 20% 18%;
+    --muted: 37 15% 18%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 259 40% 25%;
-    --accent-foreground: 263 52% 85%;
+    --accent: 270 25% 30%;
+    --accent-foreground: 270 28% 85%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 259 20% 20%;
-    --input: 259 20% 20%;
-    --ring: 210 75% 66%;
+    --border: 37 15% 20%;
+    --input: 37 15% 20%;
+    --ring: 37 45% 60%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -136,7 +138,7 @@
 @layer components {
   /* Glassmorphism Card */
   .glass-card {
-    @apply bg-white/70 backdrop-blur-xl border border-white/50 rounded-2xl;
+    @apply bg-white/80 backdrop-blur-xl border border-white/60 rounded-2xl;
     box-shadow: var(--shadow-card);
   }
 
@@ -149,7 +151,7 @@
 
   .btn-gradient:hover {
     @apply scale-105;
-    box-shadow: 0 8px 32px -4px hsl(210 75% 66% / 0.5);
+    box-shadow: 0 8px 32px -4px hsl(37 45% 60% / 0.5);
   }
 
   .btn-gradient:active {
@@ -165,6 +167,23 @@
   .soft-card:hover {
     @apply -translate-y-1;
     box-shadow: var(--shadow-card);
+  }
+
+  /* Category Cards */
+  .card-holistique {
+    @apply bg-sauge/20 border-l-4 border-sauge;
+  }
+
+  .card-administratif {
+    @apply bg-bleu-doux/20 border-l-4 border-bleu-doux;
+  }
+
+  .card-emotionnel {
+    @apply bg-lavande/20 border-l-4 border-lavande;
+  }
+
+  .card-animaux {
+    @apply bg-peche/20 border-l-4 border-peche;
   }
 
   /* Section */
@@ -228,6 +247,23 @@
   .link-underline:hover::after {
     @apply w-full;
   }
+
+  /* Value Card */
+  .value-card {
+    @apply bg-white rounded-2xl p-6 text-center transition-all duration-300;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .value-card:hover {
+    @apply -translate-y-1 scale-[1.02];
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Testimonial Card */
+  .testimonial-card {
+    @apply bg-white rounded-2xl p-6 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
 }
 
 @layer utilities {
@@ -240,15 +276,24 @@
     font-family: 'Nunito', sans-serif;
   }
 
-  /* Text Gradient */
+  /* Text Gradient - Gold */
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-primary);
   }
 
+  /* Text Gold */
+  .text-or {
+    color: hsl(var(--or-champagne));
+  }
+
+  .text-or-fonce {
+    color: hsl(var(--or-fonce));
+  }
+
   /* Blur overlay */
   .blur-overlay {
-    @apply backdrop-blur-xl bg-white/60;
+    @apply backdrop-blur-xl bg-white/70;
   }
 
   /* Section Background */
@@ -256,31 +301,70 @@
     @apply bg-gradient-to-b from-white to-muted/30;
   }
 
-  /* Serenity Blue */
-  .bg-serenity {
-    background-color: hsl(var(--serenity-blue));
+  /* Brand Colors Utilities */
+  .bg-or {
+    background-color: hsl(var(--or-champagne));
   }
 
-  .text-serenity {
-    color: hsl(var(--serenity-blue));
+  .bg-or-fonce {
+    background-color: hsl(var(--or-fonce));
   }
 
-  /* Parme Pastel */
-  .bg-parme {
-    background-color: hsl(var(--parme-pastel));
+  .bg-beige {
+    background-color: hsl(var(--beige-clair));
   }
 
-  .text-parme {
-    color: hsl(var(--parme-pastel));
+  .bg-sauge {
+    background-color: hsl(var(--vert-sauge));
   }
 
-  /* Violet Deep */
-  .bg-violet-deep {
-    background-color: hsl(var(--violet-deep));
+  .bg-bleu-doux {
+    background-color: hsl(var(--bleu-doux));
   }
 
-  .text-violet-deep {
-    color: hsl(var(--violet-deep));
+  .bg-lavande {
+    background-color: hsl(var(--lavande));
+  }
+
+  .bg-peche {
+    background-color: hsl(var(--peche-pastel));
+  }
+
+  .text-sauge {
+    color: hsl(var(--vert-sauge));
+  }
+
+  .text-bleu-doux {
+    color: hsl(var(--bleu-doux));
+  }
+
+  .text-lavande {
+    color: hsl(var(--lavande));
+  }
+
+  .text-peche {
+    color: hsl(var(--peche-pastel));
+  }
+
+  .border-sauge {
+    border-color: hsl(var(--vert-sauge));
+  }
+
+  .border-bleu-doux {
+    border-color: hsl(var(--bleu-doux));
+  }
+
+  .border-lavande {
+    border-color: hsl(var(--lavande));
+  }
+
+  .border-peche {
+    border-color: hsl(var(--peche-pastel));
+  }
+
+  /* Text justified */
+  .text-justify {
+    text-align: justify;
   }
 }
 
@@ -325,6 +409,17 @@
   }
 }
 
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes pulse-soft {
   0%, 100% {
     opacity: 1;
@@ -346,8 +441,16 @@
   animation: slide-in-right 0.5s ease-out forwards;
 }
 
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
 .animate-pulse-soft {
   animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 /* Stagger children */
@@ -362,3 +465,15 @@
 .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
 .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
 .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Scroll animations */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

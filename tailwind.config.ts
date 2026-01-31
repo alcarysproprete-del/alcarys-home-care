@@ -23,17 +23,24 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        serenity: {
-          DEFAULT: "hsl(var(--serenity-blue))",
-          light: "hsl(var(--serenity-blue-light))",
+        or: {
+          DEFAULT: "hsl(var(--or-champagne))",
+          fonce: "hsl(var(--or-fonce))",
         },
-        parme: {
-          DEFAULT: "hsl(var(--parme-pastel))",
-          light: "hsl(var(--parme-light))",
+        beige: {
+          DEFAULT: "hsl(var(--beige-clair))",
         },
-        violet: {
-          deep: "hsl(var(--violet-deep))",
-          glow: "hsl(var(--violet-glow))",
+        sauge: {
+          DEFAULT: "hsl(var(--vert-sauge))",
+        },
+        "bleu-doux": {
+          DEFAULT: "hsl(var(--bleu-doux))",
+        },
+        lavande: {
+          DEFAULT: "hsl(var(--lavande))",
+        },
+        peche: {
+          DEFAULT: "hsl(var(--peche-pastel))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -108,6 +115,10 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-20px)" },
         },
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -117,12 +128,13 @@ export default {
         "slide-in": "slide-in 0.5s ease-out forwards",
         "scale-in": "scale-in 0.3s ease-out forwards",
         "float": "float 6s ease-in-out infinite",
+        "slide-up": "slide-up 0.5s ease-out forwards",
       },
       boxShadow: {
-        'soft': '0 4px 20px -4px hsl(259 53% 49% / 0.12)',
-        'card': '0 8px 32px -8px hsl(259 53% 49% / 0.15)',
-        'elevated': '0 16px 48px -12px hsl(259 53% 49% / 0.2)',
-        'glow': '0 4px 24px -4px hsl(210 75% 66% / 0.4)',
+        'soft': '0 4px 20px -4px hsl(37 47% 44% / 0.12)',
+        'card': '0 8px 32px -8px hsl(37 47% 44% / 0.15)',
+        'elevated': '0 16px 48px -12px hsl(37 47% 44% / 0.2)',
+        'glow': '0 4px 24px -4px hsl(37 45% 60% / 0.4)',
       },
     },
   },
