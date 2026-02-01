@@ -36,20 +36,27 @@ const Header = () => {
         <div className="container-custom">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2 flex-shrink-0">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-or to-or-fonce flex items-center justify-center">
                 <span className="text-primary-foreground font-playfair font-bold text-xl">A</span>
               </div>
               <span className="font-playfair text-xl font-semibold text-foreground hidden sm:block">Alcarys</span>
             </Link>
 
+            {/* Titre centré - visible sur desktop */}
+            <div className="hidden xl:flex absolute left-1/2 transform -translate-x-1/2">
+              <span className="font-playfair text-lg xl:text-xl font-semibold text-or-fonce whitespace-nowrap">
+                Prendre soin autrement
+              </span>
+            </div>
+
             {/* Desktop Navigation - Non déroulant */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-3">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`link-underline font-medium text-sm transition-colors ${
+                  className={`px-2 py-1 font-medium text-sm transition-colors whitespace-nowrap ${
                     location.pathname === link.path
                       ? "text-primary"
                       : "text-foreground/80 hover:text-primary"
@@ -61,7 +68,7 @@ const Header = () => {
             </nav>
 
             {/* CTA Button */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <a href="tel:0764160367" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
                 <span className="font-medium text-sm">07 64 16 03 67</span>

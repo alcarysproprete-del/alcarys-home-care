@@ -35,7 +35,7 @@ const Services = () => {
     {
       icon: Droplets,
       title: "Aide à l'hygiène",
-      description: "Accompagnement respectueux et bienveillant pour la toilette quotidienne. Nous préservons votre dignité et votre confort.",
+      description: "Accompagnement respectueux et bienveillant pour la toilette quotidienne (non médicale). Nous préservons votre dignité et votre confort.",
       image: null,
       features: ["Aide à la toilette", "Habillage", "Coiffure simple", "Lever et coucher"],
     },
@@ -112,10 +112,10 @@ const Services = () => {
       <section className="hero-bg section-padding">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-playfair mb-6 animate-fade-up">
+            <h1 className="text-4xl md:text-5xl font-playfair mb-6 animate-fade-up text-center">
               Nos services d'aide à domicile
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground animate-fade-up" style={{ animationDelay: "0.1s" }}>
+            <p className="text-lg md:text-xl text-muted-foreground animate-fade-up text-center" style={{ animationDelay: "0.1s" }}>
               Des prestations complètes et personnalisées pour vous accompagner au quotidien, 
               dans le respect de vos habitudes et de votre autonomie.
             </p>
@@ -142,13 +142,13 @@ const Services = () => {
                     </div>
                     <h2 className="text-2xl md:text-3xl font-playfair">{service.title}</h2>
                   </div>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground leading-relaxed text-justify">
                     {service.description}
                   </p>
                   <ul className="grid grid-cols-2 gap-3">
                     {service.features.map((feature, fIndex) => (
                       <li key={fIndex} className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-serenity" />
+                        <div className="w-2 h-2 rounded-full bg-sauge" />
                         <span className="text-foreground">{feature}</span>
                       </li>
                     ))}
@@ -166,12 +166,12 @@ const Services = () => {
                     <div className="rounded-3xl overflow-hidden shadow-card">
                       <img
                         src={service.image}
-                        alt={service.title}
+                        alt={`Service ${service.title} - Aide à domicile Alcarys`}
                         className="w-full h-80 object-cover"
                       />
                     </div>
                   ) : (
-                    <div className="rounded-3xl bg-gradient-to-br from-serenity-light via-parme-light to-background h-80 flex items-center justify-center shadow-soft">
+                    <div className="rounded-3xl bg-gradient-to-br from-bleu-doux/30 via-lavande/30 to-background h-80 flex items-center justify-center shadow-soft">
                       <service.icon className="w-24 h-24 text-primary/30" />
                     </div>
                   )}
@@ -186,19 +186,19 @@ const Services = () => {
       <section className="section-padding bg-section-alt">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-playfair mb-6">
+            <h2 className="text-3xl md:text-4xl font-playfair mb-6 text-center">
               Services à la carte <span className="text-gradient">(optionnels)</span>
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground text-center">
               Des prestations complémentaires pour répondre à tous vos besoins spécifiques.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {servicesAlaCarte.map((service, index) => (
-              <div key={index} className="soft-card group hover:shadow-card transition-shadow">
+              <div key={index} className={`soft-card group hover:shadow-card transition-shadow ${index === 7 ? 'card-animaux' : ''}`}>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serenity to-parme flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-or to-or-fonce flex items-center justify-center group-hover:scale-110 transition-transform">
                     <service.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
                   <div className="text-xl font-bold text-gradient">{service.price}</div>
@@ -215,10 +215,10 @@ const Services = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="glass-card p-8 md:p-16 text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-playfair mb-6">
+            <h2 className="text-3xl md:text-4xl font-playfair mb-6 text-center">
               Besoin d'un service personnalisé ?
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
               Chaque situation est unique. Contactez-nous pour une évaluation gratuite 
               et un plan d'accompagnement sur-mesure.
             </p>
