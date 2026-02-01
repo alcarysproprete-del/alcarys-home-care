@@ -43,15 +43,8 @@ const Header = () => {
               <span className="font-playfair text-xl font-semibold text-foreground hidden sm:block">Alcarys</span>
             </Link>
 
-            {/* Titre centré */}
-            <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2">
-              <h1 className="font-playfair text-xl xl:text-2xl font-semibold text-or-fonce">
-                Prendre soin autrement
-              </h1>
-            </div>
-
             {/* Desktop Navigation - Non déroulant */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
