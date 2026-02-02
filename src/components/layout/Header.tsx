@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CartButton from "@/components/cart/CartButton";
 
 const navLinks = [
   { name: "Accueil", path: "/" },
@@ -67,12 +68,13 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* CTA Button */}
+            {/* CTA Button + Cart */}
             <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
               <a href="tel:0764160367" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
                 <span className="font-medium text-sm">07 64 16 03 67</span>
               </a>
+              <CartButton />
               <Link to="/contact">
                 <Button variant="cta" size="default">
                   Évaluation gratuite
@@ -80,14 +82,17 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 text-foreground"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Menu"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
+            {/* Mobile Menu + Cart */}
+            <div className="lg:hidden flex items-center gap-2">
+              <CartButton />
+              <button
+                className="p-2 text-foreground"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Menu"
+              >
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Navigation */}
@@ -137,7 +142,7 @@ const Header = () => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-elevated flex items-center justify-center hover:scale-110 transition-all duration-300 animate-fade-in"
+          className="fixed bottom-20 right-6 z-50 w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-elevated flex items-center justify-center hover:scale-110 transition-all duration-300 animate-fade-in"
           aria-label="Retour en haut"
         >
           <ArrowUp className="w-5 h-5" />
