@@ -1,13 +1,25 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Star, Clock, Euro } from "lucide-react";
+import { Check, Star, Euro, ShoppingCart } from "lucide-react";
+import AddToCartModal from "@/components/cart/AddToCartModal";
 
 const Packs = () => {
+  const [selectedItem, setSelectedItem] = useState<{
+    id: string;
+    type: 'pack' | 'service';
+    name: string;
+    description: string;
+    price: number;
+    priceUnit: string;
+  } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const packs = [
     {
+      id: "pack-autonomie",
       name: "Pack Autonomie",
       description: "Pour personnes autonomes",
-      price: "à partir de 12",
+      price: 12,
       priceNote: "€/h après aides",
       popular: false,
       resteACharge: "Variable",
@@ -20,9 +32,10 @@ const Packs = () => {
       ],
     },
     {
+      id: "pack-modere",
       name: "Pack Modéré",
       description: "Perte d'autonomie légère",
-      price: "à partir de 9",
+      price: 9,
       priceNote: "€/h après APA",
       popular: true,
       resteACharge: "0 € à minime",
@@ -35,9 +48,10 @@ const Packs = () => {
       ],
     },
     {
+      id: "pack-presence",
       name: "Pack Présence",
       description: "Sécurité & réassurance",
-      price: "15",
+      price: 15,
       priceNote: "€/h",
       popular: false,
       resteACharge: "Variable",
@@ -50,9 +64,10 @@ const Packs = () => {
       ],
     },
     {
+      id: "pack-nuit",
       name: "Pack Nuit Douce",
       description: "Présence nocturne",
-      price: "65 – 90",
+      price: 75,
       priceNote: "€/nuit",
       popular: false,
       resteACharge: "Variable",
@@ -64,9 +79,10 @@ const Packs = () => {
       ],
     },
     {
+      id: "pack-mobilite",
       name: "Pack Mobilité Réduite",
       description: "Perte d'autonomie importante",
-      price: "à partir de 8",
+      price: 8,
       priceNote: "€/h après APA/PCH",
       popular: false,
       resteACharge: "0 €",
@@ -79,6 +95,18 @@ const Packs = () => {
       ],
     },
   ];
+
+  const handleAddToCart = (pack: typeof packs[0]) => {
+    setSelectedItem({
+      id: pack.id,
+      type: 'pack',
+      name: pack.name,
+      description: pack.description,
+      price: pack.price,
+      priceUnit: pack.priceNote,
+    });
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -153,15 +181,15 @@ const Packs = () => {
                     ))}
                   </ul>
 
-                  <Link to="/contact" className="block">
-                    <Button
-                      variant={pack.popular ? "cta" : "outline"}
-                      className="w-full"
-                      size="lg"
-                    >
-                      Choisir ce pack
-                    </Button>
-                  </Link>
+                  <Button
+                    variant={pack.popular ? "cta" : "outline"}
+                    className="w-full"
+                    size="lg"
+                    onClick={() => handleAddToCart(pack)}
+                  >
+                    <ShoppingCart className="w-4 h-4 mr-2" />
+                    Ajouter au panier
+                  </Button>
                 </div>
               </div>
             ))}
@@ -172,11 +200,6 @@ const Packs = () => {
               * Les tarifs indiqués sont après déduction des aides APA/PCH/CESU selon éligibilité. 
               Une évaluation gratuite permet de déterminer le reste à charge exact.
             </p>
-            <Link to="/financements">
-              <Button variant="link" className="text-primary">
-                En savoir plus sur les aides financières →
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -209,25 +232,12 @@ const Packs = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="glass-card p-8 md:p-16 text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-playfair mb-6 text-center">
-              Vous ne savez pas quel pack choisir ?
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
-              Demandez une évaluation gratuite et sans engagement. 
-              Nous vous conseillons le pack le plus adapté à votre situation.
-            </p>
-            <Link to="/contact">
-              <Button variant="cta" size="xl">
-                Demander une évaluation gratuite
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Add to Cart Modal */}
+      <AddToCartModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        item={selectedItem}
+      />
     </>
   );
 };

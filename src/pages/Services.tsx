@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
@@ -8,8 +9,19 @@ import cleaningImage from "@/assets/service-cleaning.jpg";
 import mealsImage from "@/assets/service-meals.jpg";
 import accompanimentImage from "@/assets/service-accompaniment.jpg";
 import nightImage from "@/assets/service-night.jpg";
+import AddToCartModal from "@/components/cart/AddToCartModal";
 
 const Services = () => {
+  const [selectedItem, setSelectedItem] = useState<{
+    id: string;
+    type: 'pack' | 'service';
+    name: string;
+    description: string;
+    price: number;
+    priceUnit: string;
+  } | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const services = [
     {
       icon: Home,
@@ -57,54 +69,82 @@ const Services = () => {
 
   const servicesAlaCarte = [
     {
+      id: "service-medical",
       icon: Stethoscope,
       title: "Accompagnement médical",
-      price: "45 €/h",
+      price: 45,
+      priceDisplay: "45 €/h",
       description: "Transport et assistance lors de rendez-vous médicaux",
     },
     {
+      id: "service-courses",
       icon: ShoppingCart,
       title: "Courses et logistique",
-      price: "40 €/h",
+      price: 40,
+      priceDisplay: "40 €/h",
       description: "Courses alimentaires, pharmacie, démarches administratives",
     },
     {
+      id: "service-sorties",
       icon: Theater,
       title: "Sorties culturelles et sociales",
-      price: "50 €/h",
+      price: 50,
+      priceDisplay: "50 €/h",
       description: "Accompagnement au théâtre, musée, cinéma, événements sociaux",
     },
     {
+      id: "service-admin",
       icon: FileText,
       title: "Aide administrative",
-      price: "35 €/h",
+      price: 35,
+      priceDisplay: "35 €/h",
       description: "Gestion du courrier, formulaires, demandes APA/PCH, suivi de dossiers",
     },
     {
+      id: "service-cognitif",
       icon: Brain,
       title: "Stimulation cognitive personnalisée",
-      price: "45 €/h",
+      price: 45,
+      priceDisplay: "45 €/h",
       description: "Ateliers mémoire, jeux cognitifs, activités adaptées",
     },
     {
+      id: "service-bienetre",
       icon: Heart,
       title: "Soutien bien-être",
-      price: "50 €/h",
+      price: 50,
+      priceDisplay: "50 €/h",
       description: "Activités douces : lecture, promenade, relaxation, écoute",
     },
     {
+      id: "service-nuit",
       icon: Moon,
       title: "Intervention ponctuelle de nuit",
-      price: "80 €/nuit",
+      price: 80,
+      priceDisplay: "80 €/nuit",
       description: "Présence rassurante et assistance nocturne exceptionnelle",
     },
     {
+      id: "service-animaux",
       icon: PawPrint,
       title: "Option Animaux",
-      price: "20 €/h",
+      price: 20,
+      priceDisplay: "20 €/h",
       description: "Promenade, alimentation, soins de base pour animaux de compagnie",
     },
   ];
+
+  const handleAddService = (service: typeof servicesAlaCarte[0]) => {
+    setSelectedItem({
+      id: service.id,
+      type: 'service',
+      name: service.title,
+      description: service.description,
+      price: service.price,
+      priceUnit: "/h",
+    });
+    setIsModalOpen(true);
+  };
 
   return (
     <>
@@ -153,9 +193,10 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact">
+                  <Link to="/packs">
                     <Button variant="cta" size="lg">
-                      Demander une intervention
+                      <ShoppingCart className="w-4 h-4 mr-2" />
+                      Voir nos packs
                     </Button>
                   </Link>
                 </div>
@@ -191,20 +232,29 @@ const Services = () => {
             </h2>
             <p className="text-lg text-muted-foreground text-center">
               Des prestations complémentaires pour répondre à tous vos besoins spécifiques.
+              Cliquez pour ajouter au panier.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {servicesAlaCarte.map((service, index) => (
-              <div key={index} className={`soft-card group hover:shadow-card transition-shadow ${index === 7 ? 'card-animaux' : ''}`}>
+              <div 
+                key={index} 
+                className={`soft-card group hover:shadow-card transition-all cursor-pointer ${index === 7 ? 'card-animaux' : ''}`}
+                onClick={() => handleAddService(service)}
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-or to-or-fonce flex items-center justify-center group-hover:scale-110 transition-transform">
                     <service.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
-                  <div className="text-xl font-bold text-gradient">{service.price}</div>
+                  <div className="text-xl font-bold text-gradient">{service.priceDisplay}</div>
                 </div>
                 <h3 className="font-playfair text-lg mb-2">{service.title}</h3>
-                <p className="text-sm text-muted-foreground">{service.description}</p>
+                <p className="text-sm text-muted-foreground mb-4">{service.description}</p>
+                <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <ShoppingCart className="w-4 h-4 mr-2" />
+                  Ajouter au panier
+                </Button>
               </div>
             ))}
           </div>
@@ -230,6 +280,13 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      {/* Add to Cart Modal */}
+      <AddToCartModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        item={selectedItem}
+      />
     </>
   );
 };
