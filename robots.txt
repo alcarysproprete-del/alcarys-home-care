@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /packs/
+Allow: /services/
+Allow: /activites/
+Allow: /villes/
+Allow: /mentions-legales
+Allow: /politique-confidentialite
+Allow: /formulaires-rgpd
+Disallow: /SRC/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+Disallow: /node_modules/
+Disallow: /scripts/
+Disallow: /tests/
+Disallow: /drafts/
+Sitemap: https://site.alcarys.fr/sitemap.xml
